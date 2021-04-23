@@ -1,5 +1,7 @@
 import React from 'react';
 
+import 'styles.css'
+
 function Chat() {
   return (
     <section class="msger">
