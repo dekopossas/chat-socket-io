@@ -1,6 +1,7 @@
 import React from 'react';
 
-function MenssageBox() {
+function MenssageBox({ isMine }) {
+  const positionClass = (isMine) ? 'right-msg' : 'left-msg';
   return (
     <div class="msg right-msg">
       <div class="msg-bubble">
