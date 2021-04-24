@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
+import FormMessage from '../../components/FormMessage';
 import MessageBox from '../../components/MessageBox';
 
 import './styles.css'
 
-import io from 'socket.io-client';
-
-const socket = io('http//localhost:3001');
+import socket from '../../utils/socketClient';
 
 function Chat() {
-  const messages = [
-    { isMine:true, user:'Renato', sendAt:'11:00', message:'oi' },
-    { isMine:false, user:'Coruja', sendAt:'11:01', message:'cole!' },
-    { isMine:true, user:'Renato', sendAt:'11:02', message:'Passa a grana!' },
-  ]
+  // const messages = [
+  //   { isMine:true, user:'Renato', sendAt:'11:00', message:'oi' },
+  //   { isMine:false, user:'Coruja', sendAt:'11:01', message:'cole!' },
+  //   { isMine:true, user:'Renato', sendAt:'11:02', message:'Passa a grana!' },
+  // ]
+
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    socket.on('chat.receiveMessage', (data) => {
+    })
+  })
 
   return (
     <section class="msger">
@@ -33,13 +39,7 @@ function Chat() {
           <MessageBox isMine={isMine} user={user} sendAt={sendAt} message={message} />
         ))}
       </main>
-
-      <form class="msger-inputarea">
-        <input type="text" class="msger-input" placeholder="Enter your message..." />
-        <button type="submit" class="msger-send-btn">
-          Send
-        </button>
-      </form>
+      <FormMessage />
     </section>
   );
 }
