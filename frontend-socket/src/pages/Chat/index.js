@@ -18,8 +18,9 @@ function Chat() {
 
   useEffect(() => {
     socket.on('chat.receiveMessage', (data) => {
+      setMessages([ ...messages, data ])
     })
-  })
+  }, [messages])
 
   return (
     <section class="msger">
@@ -35,7 +36,7 @@ function Chat() {
       </header>
 
       <main class="msger-chat">
-        {messages.map(({ user, message, sendAt, isMine }) => (
+        {messages.map(({ username:user, message, sendAt, isMine }) => (
           <MessageBox isMine={isMine} user={user} sendAt={sendAt} message={message} />
         ))}
       </main>
