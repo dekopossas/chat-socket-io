@@ -7,6 +7,7 @@ function FormMessage() {
   const handleSend = (event) => {
     event.preventDefault();
     console.log(message);
+    socket.emit('chat.sendMessage', message);
   };
 
   return (
