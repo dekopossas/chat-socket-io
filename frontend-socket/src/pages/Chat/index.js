@@ -5,9 +5,7 @@ import MessageBox from '../../components/MessageBox';
 
 import './styles.css'
 
-import io from 'socket.io-client';
-
-const socket = io('http//localhost:3001');
+import socket from '../../utils/socketClient';
 
 function Chat() {
   const messages = [

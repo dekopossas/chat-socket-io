@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import socket from '../../utils/socketClient';
 
 function FormMessage() {
   const [message, setMessage] = useState('');
