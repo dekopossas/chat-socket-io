@@ -5,6 +5,12 @@ import MessageBox from '../../components/MessageBox';
 import './styles.css'
 
 function Chat() {
+  const messenges = [
+    { isMine:true, user:'Renato', sendAt:'11:00', message:'oi' },
+    { isMine:false, user:'Coruja', sendAt:'11:01', message:'cole!' },
+    { isMine:true, user:'Renato', sendAt:'11:02', message:'Passa a grana!' },
+  ]
+
   return (
     <section class="msger">
       <header class="msger-header">
