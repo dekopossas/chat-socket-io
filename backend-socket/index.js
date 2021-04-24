@@ -15,6 +15,11 @@ const PORT = 3001;
 
 io.on('connection', (socket) => {
   console.log('Novo usuário conectado');
+
+  socket.on('chat.sendMessage', (message) => {
+    console.log(message)
+    io.emit('chat.receiveMessage', message);
+  })
 });
 
 app.get('/', (req, res) => {
