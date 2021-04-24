@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 app.post('/login', async (req, res) => {
   const { username } = req.body;
-  await User.creatOrUpdate(username, new Data());
+  await User.createOrUpdate(username, new Date());
 
   res.status(201).end();
 })
