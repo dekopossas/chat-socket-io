@@ -1,10 +1,10 @@
 const connection = require('./connection');
 
-const createOrUpdate = (username, lastSigned) => connection()
-  .then((db) => db.collection('user').updateOne(
+const createOrUpdate = (username, lastSignedIn) => connection().then((db) => 
+  db.collection('users').updateOne(
     { username },
-    { $set: { lastSigned } },
-    { upsert: true },
+    { $set: { lastSignedIn } },
+    { upsert: true }
   ));
 
   module.exports = {

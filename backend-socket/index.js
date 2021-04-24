@@ -41,6 +41,6 @@ app.post('/login', async (req, res) => {
   await User.createOrUpdate(username, new Date());
 
   res.status(201).end();
-})
+});
 
 httpServer.listen(PORT, () => console.log('App listening on PORT %s', PORT));
