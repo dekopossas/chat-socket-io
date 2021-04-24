@@ -18,4 +18,4 @@ app.get('/', (_req, res) => {
 
 const PORT = 3001;
 
-httpServer.listen('PORT');
+httpServer.listen(PORT, () => console.log('App listening on PORT %s', PORT))
