@@ -1,30 +1,26 @@
 import React, { useState } from 'react';
 
 function FormMessage() {
-  const [mensage, setMessage] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSend = (event) => {
     console.log(message);
-  }
+  };
 
   return (
-    <>
-      <form class="msger-inputarea">
+    <form onSubmit={handleSend}>
+      <div class="msger-inputarea">
         <input
           type="text"
           class="msger-input"
           placeholder="Digite uma mensagem..."
-          onChange={(event) => handleSend(event.target.value)}
+          onChange={(event) => setMessage(event.target.value)}
         />
-        <button
-          type="submit"
-          class="msger-send-btn"
-          onClick={handleSend}
-        >
+        <button type="submit" class="msger-send-btn">
           Enviar
         </button>
-      </form>
-    </>
+      </div>
+    </form>
   );
 }
 
