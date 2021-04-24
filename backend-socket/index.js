@@ -11,14 +11,19 @@ const io = require('socket.io')(httpServer, {
   }
 });
 
+const getCurrentHour = () => {
+  const now = new Date();
+  return `${now.getHours()}:${now.getMinutes()}`;
+}
+
 const PORT = 3001;
 
 io.on('connection', (socket) => {
   console.log('Novo usuário conectado');
 
-  socket.on('chat.sendMessage', (message) => {
-    console.log(message)
-    io.emit('chat.receiveMessage', message);
+  socket.on('chat.sendMessage', (data) => {
+    data = { ...data, sendAt: getCurrentHour() };
+    io.emit('chat.receiveMessage', data);
   })
 });
 
