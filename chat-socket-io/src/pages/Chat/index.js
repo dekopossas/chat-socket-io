@@ -20,6 +20,7 @@ function Chat() {
 
       <main class="msger-chat">
         <MessageBox isMine={true} user='Renato' sendAt='11:00' message='oi' />
+        <MessageBox isMine={false} user='Coruja' sendAt='11:01' message='cole' />
       </main>
 
       <form class="msger-inputarea">
