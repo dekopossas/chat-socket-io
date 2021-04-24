@@ -23,7 +23,8 @@ io.on('connection', (socket) => {
 const PORT = 3001;
 
 app.get('/', (_req, res) => {
-  res.status(200).json({ ok:true });
+  // res.status(200).json({ ok:true });
+  res.render('home')
 });
 
 app.use(bodyParser.json());
