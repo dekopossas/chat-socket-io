@@ -10,4 +10,4 @@ const creatOrUpdate = (username, lastSigned) => connection
   module.exports = {
     creatOrUpdate,
   };
-  
+  // query fod4 de mais pra criar caso não exista, atualizar se existir para reativo.
