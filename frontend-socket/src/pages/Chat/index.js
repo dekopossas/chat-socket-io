@@ -4,6 +4,10 @@ import MessageBox from '../../components/MessageBox';
 
 import './styles.css'
 
+import io from 'socket.io-client';
+
+const socket = io('http//localhost:3001')
+
 function Chat() {
   const messages = [
     { isMine:true, user:'Renato', sendAt:'11:00', message:'oi' },
