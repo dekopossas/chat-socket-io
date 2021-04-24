@@ -4,6 +4,7 @@ function FormMessage() {
   const [message, setMessage] = useState('');
 
   const handleSend = (event) => {
+    event.preventDefault();
     console.log(message);
   };
 
