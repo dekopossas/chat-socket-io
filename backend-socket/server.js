@@ -11,13 +11,19 @@ const io = require('socket.io')(httpServer, {
   }
 });
 
-app.set('view engine', 'ejs');
+io.on('connection', (socket) => {
+  console.log('Novo usuário')
 
-app.get('/', (_req, res) => {
-  res.render('home');
+  socket.on('chat.sendMessage', (message) => {
+    console.log(message)
+  })
 });
 
 const PORT = 3001;
+
+app.get('/', (_req, res) => {
+  res.status(200).json({ ok:true });
+});
 
 app.use(express.json());
 app.use(cors());
