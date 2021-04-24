@@ -1,30 +1,26 @@
 const express = require('express');
-const cors = require('cors');
+const bodyParser = require('body-parser');
+// const cors = require('cors');
 const app = express();
 const httpServer = require('http').createServer(app);
 
-// obs:add cors mais tarde
-const io = require('socket.io')(httpServer);
+const io = require('socket.io')(httpServer, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST']
+  }
+});
+
+const PORT = 3001;
 
 io.on('connection', (socket) => {
-  console.log('Novo usuário conectado')
+  console.log('Novo usuário conectado');
 });
 
-// socket.on('chat.sendMessage', (message) => {
-//   console.log(message)
-// })
-
-const PORT = 3000;
-
-app.set('view engine','ejs');
-app.set('views', './views');
-
-app.get('/', (_req, res) => {
-  // res.status(200).json({ ok:true });
-  res.render('home');
+app.get('/', (req, res) => {
+  res.status(200).json({ok: true})
 });
 
-app.use(express.json());
-app.use(cors());
+app.use(bodyParser.json());
 
 httpServer.listen(PORT, () => console.log('App listening on PORT %s', PORT));
