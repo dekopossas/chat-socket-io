@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const httpServer = require('http').createServer(app);
+const bodyParser = require('body-parser');
 
 // obs:add cors mais tarde
 const io = require('socket.io')(httpServer, {
@@ -12,7 +13,7 @@ const io = require('socket.io')(httpServer, {
 });
 
 io.on('connection', (socket) => {
-  console.log('Novo usuário')
+  console.log('Novo usuário conectado')
 
   socket.on('chat.sendMessage', (message) => {
     console.log(message)
@@ -25,7 +26,7 @@ app.get('/', (_req, res) => {
   res.status(200).json({ ok:true });
 });
 
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors());
 
 httpServer.listen(PORT, () => console.log('App listening on PORT %s', PORT))
