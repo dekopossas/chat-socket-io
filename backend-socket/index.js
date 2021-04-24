@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 // const cors = require('cors');
 const app = express();
 const httpServer = require('http').createServer(app);
+const User = require('./models/User')
 
 const io = require('socket.io')(httpServer, {
   cors: {
@@ -27,10 +28,15 @@ io.on('connection', (socket) => {
   })
 });
 
+app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
   res.status(200).json({ok: true})
 });
 
-app.use(bodyParser.json());
+app.post('/login', async (req, res) => {
+  const { username } = req.body;
+  await User.creatOrUpdate(email, new Data());
+})
 
 httpServer.listen(PORT, () => console.log('App listening on PORT %s', PORT));
