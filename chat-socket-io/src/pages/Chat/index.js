@@ -5,7 +5,7 @@ import MessageBox from '../../components/MessageBox';
 import './styles.css'
 
 function Chat() {
-  const messenges = [
+  const messages = [
     { isMine:true, user:'Renato', sendAt:'11:00', message:'oi' },
     { isMine:false, user:'Coruja', sendAt:'11:01', message:'cole!' },
     { isMine:true, user:'Renato', sendAt:'11:02', message:'Passa a grana!' },
@@ -25,8 +25,9 @@ function Chat() {
       </header>
 
       <main class="msger-chat">
-        <MessageBox isMine={true} user='Renato' sendAt='11:00' message='oi' />
-        <MessageBox isMine={false} user='Coruja' sendAt='11:01' message='cole' />
+        {messages.map(({ user, message, sendAt, isMine }) => (
+          <MessageBox isMine={isMine} user={user} sendAt={sendAt} message={message} />
+        ))}
       </main>
 
       <form class="msger-inputarea">
