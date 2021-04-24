@@ -1,5 +1,6 @@
 import React from 'react';
 
+import FormMessage from '../../components/FormMessage';
 import MessageBox from '../../components/MessageBox';
 
 import './styles.css'
@@ -33,13 +34,7 @@ function Chat() {
           <MessageBox isMine={isMine} user={user} sendAt={sendAt} message={message} />
         ))}
       </main>
-
-      <form class="msger-inputarea">
-        <input type="text" class="msger-input" placeholder="Enter your message..." />
-        <button type="submit" class="msger-send-btn">
-          Send
-        </button>
-      </form>
+      <FormMessage />
     </section>
   );
 }
