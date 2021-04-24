@@ -1,7 +1,7 @@
 const connection = require('./connection');
 
 const creatOrUpdate = (username, lastSigned) => connection
-  .then((db) => db.updateOne(
+  .then((db) => db.collection('user').updateOne(
     { username },
     { $set: { lastSigned } },
     { upsert: true },
