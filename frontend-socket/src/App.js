@@ -1,10 +1,13 @@
 import './App.css';
 
-import Chat from './pages/Chat';
+import { BrowserRouter } from 'react-router-dom'
+import Route from './routes';
 
 function App() {
   return (
-    <Chat />
+    <BrowserRouter>
+      <Route />
+    </BrowserRouter>
   );
 }
 
