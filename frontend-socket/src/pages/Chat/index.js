@@ -36,8 +36,13 @@ function Chat() {
       </header>
 
       <main class="msger-chat">
-        {messages.map(({ username:user, message, sendAt, isMine }) => (
-          <MessageBox isMine={isMine} user={user} sendAt={sendAt} message={message} />
+        {messages.map(({ username:user, message, sendAt }) => (
+          <MessageBox
+            isMine={user === localStorage.getItem('username')}
+            user={user}
+            sendAt={sendAt}
+            message={message}
+          />
         ))}
       </main>
       <FormMessage />
