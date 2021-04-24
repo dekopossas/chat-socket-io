@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const httpServer = require('http').createServer(app);
 
@@ -17,5 +18,8 @@ app.get('/', (_req, res) => {
 });
 
 const PORT = 3001;
+
+app.use(express.json());
+app.use(cors());
 
 httpServer.listen(PORT, () => console.log('App listening on PORT %s', PORT))
