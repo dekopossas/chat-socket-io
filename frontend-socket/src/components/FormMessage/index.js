@@ -4,9 +4,9 @@ function FormMessage() {
   return (
     <>
       <form class="msger-inputarea">
-        <input type="text" class="msger-input" placeholder="Enter your message..." />
+        <input type="text" class="msger-input" placeholder="Digite uma mensagem..." />
         <button type="submit" class="msger-send-btn">
-          Send
+          Enviar
         </button>
       </form>
     </>
