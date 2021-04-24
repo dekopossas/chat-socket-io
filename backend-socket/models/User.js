@@ -6,3 +6,8 @@ const creatOrUpdate = (username, lastSigned) => connection
     { $set: { lastSigned } },
     { upsert: true },
   ));
+
+  module.exports = {
+    creatOrUpdate,
+  };
+  
