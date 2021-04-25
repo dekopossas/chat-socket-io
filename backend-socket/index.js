@@ -30,6 +30,10 @@ io.on('connection', (socket) => {
 
   socket.on('chat.sendMessage', (data) => {
     data = { ...data, sendAt: getCurrentHour() };
+    console.log(data);
+    const { from, dest } = data;
+    const key = [from, dest].sort().join('-');
+    console.log(key);
     io.to(key).emit('chat.receiveMessage', data);
   })
 });
