@@ -24,7 +24,8 @@ io.on('connection', (socket) => {
   console.log('Novo usuário conectado');
 
   socket.on('connectRoom', (room) => {
-    console.log(room)
+    console.log(room);
+    socket.join(room);
   })
 
   socket.on('chat.sendMessage', (data) => {
