@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 
 import FormMessage from '../../components/FormMessage';
 import MessageBox from '../../components/MessageBox';
@@ -8,6 +9,7 @@ import './styles.css'
 import socket from '../../utils/socketClient';
 
 function Chat() {
+  const { username } = useParams;
 
   const [messages, setMessages] = useState([]);
 
