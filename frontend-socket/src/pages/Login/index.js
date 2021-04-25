@@ -13,7 +13,7 @@ function Login() {
     if(username.length === 0) return;
 
     await axios.post('http://localhost:3001/login', { username });
-    localStorage.setItem('correntUser', username);
+    localStorage.setItem('currentUser', username);
     history.push('/chats')
   }
 
