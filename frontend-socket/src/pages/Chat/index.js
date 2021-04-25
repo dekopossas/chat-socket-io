@@ -22,6 +22,7 @@ function Chat() {
     socket.emit('connectRoom', key);
 
     socket.on('chat.receiveMessage', (data) => {
+      console.log(data);
       setMessages([ ...messages, data ])
     })
   }, [messages])
