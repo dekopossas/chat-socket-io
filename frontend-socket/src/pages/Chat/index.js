@@ -14,7 +14,15 @@ function Chat() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
+    const from = localStorage.getItem('currentUser');
+    const to = username;
+
+    const key = [ from, to ].sort().join('-');
+
+    socket.emit('connectRoom', key);
+
     socket.on('chat.receiveMessage', (data) => {
+      console.log(data);
       setMessages([ ...messages, data ])
     })
   }, [messages])
@@ -42,7 +50,7 @@ function Chat() {
           />
         ))}
       </main>
-      <FormMessage />
+      <FormMessage dest={username}/>
     </section>
   );
 }

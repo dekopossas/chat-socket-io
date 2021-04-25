@@ -23,9 +23,18 @@ const PORT = 3001;
 io.on('connection', (socket) => {
   console.log('Novo usuário conectado');
 
+  socket.on('connectRoom', (room) => {
+    console.log(room);
+    socket.join(room);
+  })
+
   socket.on('chat.sendMessage', (data) => {
     data = { ...data, sendAt: getCurrentHour() };
-    io.emit('chat.receiveMessage', data);
+    console.log(data);
+    const { from, dest } = data;
+    const key = [from, dest].sort().join('-');
+    console.log(key);
+    io.to(key).emit('chat.receiveMessage', data);
   })
 });
 
