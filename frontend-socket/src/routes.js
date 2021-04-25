@@ -9,8 +9,8 @@ function Routes() {
     <Switch>
       <Route path="/" exact component={Login}/>
       <Route path="/login" exact component={Login}/>
-      <Route path="/chat" exact component={ChatList}/>
-      <Route path="/chat/:username" exact component={Chat}/>
+      <Route path="/chats" exact component={ChatList}/>
+      <Route path="/chat/:username" component={Chat}/>
     </Switch>
   )
 }
