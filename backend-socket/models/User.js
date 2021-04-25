@@ -7,7 +7,10 @@ const createOrUpdate = (username, lastSignedIn) => connection().then((db) =>
     { upsert: true }
   ));
 
+const getAll = () => connection().then((db) => db.collection('users').find({}).toArray());
+
   module.exports = {
     createOrUpdate,
+    getAll,
   };
   // query fod4 de mais pra criar caso não exista, atualizar se existir para reativo.

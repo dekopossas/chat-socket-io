@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 
 import FormMessage from '../../components/FormMessage';
 import MessageBox from '../../components/MessageBox';
@@ -8,11 +9,7 @@ import './styles.css'
 import socket from '../../utils/socketClient';
 
 function Chat() {
-  // const messages = [
-  //   { isMine:true, user:'Renato', sendAt:'11:00', message:'oi' },
-  //   { isMine:false, user:'Coruja', sendAt:'11:01', message:'cole!' },
-  //   { isMine:true, user:'Renato', sendAt:'11:02', message:'Passa a grana!' },
-  // ]
+  const { username } = useParams();
 
   const [messages, setMessages] = useState([]);
 
@@ -26,7 +23,7 @@ function Chat() {
     <section class="msger">
       <header class="msger-header">
         <div class="msger-header-title">
-          <i class="fas fa-comment-alt"></i> SimpleChat
+          <i class="fas fa-comment-alt"></i> {username}
         </div>
         <div class="msger-header-options">
           <span>

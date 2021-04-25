@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
+import ChatList from './pages/ChatList';
 import Chat from './pages/Chat';
 
 function Routes() {
@@ -8,7 +9,8 @@ function Routes() {
     <Switch>
       <Route path="/" exact component={Login}/>
       <Route path="/login" exact component={Login}/>
-      <Route path="/chat" exact component={Chat}/>
+      <Route path="/chats" exact component={ChatList}/>
+      <Route path="/chat/:username" component={Chat}/>
     </Switch>
   )
 }

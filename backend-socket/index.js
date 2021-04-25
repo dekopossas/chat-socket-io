@@ -43,4 +43,10 @@ app.post('/login', async (req, res) => {
   res.status(201).end();
 });
 
+app.get('/users', async (req, res) => {
+  const users = await User.getAll();
+
+  res.status(200).json(users);
+})
+
 httpServer.listen(PORT, () => console.log('App listening on PORT %s', PORT));
