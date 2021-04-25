@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 
   socket.on('chat.sendMessage', (data) => {
     data = { ...data, sendAt: getCurrentHour() };
-    io.emit('chat.receiveMessage', data);
+    io.to(key).emit('chat.receiveMessage', data);
   })
 });
 
