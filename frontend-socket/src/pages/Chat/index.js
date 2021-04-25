@@ -49,7 +49,7 @@ function Chat() {
           />
         ))}
       </main>
-      <FormMessage />
+      <FormMessage dest={username}/>
     </section>
   );
 }
