@@ -3,24 +3,15 @@ import socket from '../../utils/socketClient';
 
 function FormMessage() {
   const [message, setMessage] = useState('');
-  const [username, setUsername] = useState('');
 
   const handleSend = (event) => {
     event.preventDefault();
-    localStorage.setItem('username', username);
+    const username = localStorage.getItem('username');
     socket.emit('chat.sendMessage', { message, username });
   };
 
   return (
     <form onSubmit={handleSend}>
-      <div class="msger-inputarea">
-        <input
-          type="text"
-          class="msger-input"
-          placeholder="Digite seu nick..."
-          onChange={(event) => setUsername(event.target.value)}
-        />
-      </div>
       <div class="msger-inputarea">
         <input
           type="text"
