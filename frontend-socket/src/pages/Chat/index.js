@@ -8,11 +8,6 @@ import './styles.css'
 import socket from '../../utils/socketClient';
 
 function Chat() {
-  // const messages = [
-  //   { isMine:true, user:'Renato', sendAt:'11:00', message:'oi' },
-  //   { isMine:false, user:'Coruja', sendAt:'11:01', message:'cole!' },
-  //   { isMine:true, user:'Renato', sendAt:'11:02', message:'Passa a grana!' },
-  // ]
 
   const [messages, setMessages] = useState([]);
 

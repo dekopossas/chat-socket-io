@@ -16,7 +16,11 @@ function ChatList() {
 
       <ul>
         {users && users.map(({ username }) => (
-          <li>{username}</li>
+          <li>
+            <a href={`/chat/${username}`}>
+              {username}
+            </a>
+          </li>
           ))}
       </ul>
     </div>

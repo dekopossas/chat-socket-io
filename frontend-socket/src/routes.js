@@ -10,7 +10,7 @@ function Routes() {
       <Route path="/" exact component={Login}/>
       <Route path="/login" exact component={Login}/>
       <Route path="/chat" exact component={ChatList}/>
-      <Route path="/chat/:id" exact component={Chat}/>
+      <Route path="/chat/:username" exact component={Chat}/>
     </Switch>
   )
 }
