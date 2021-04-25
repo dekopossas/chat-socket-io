@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import socket from '../../utils/socketClient';
 
-function FormMessage() {
+function FormMessage({ username }) {
   const [message, setMessage] = useState('');
 
   const handleSend = (event) => {
     event.preventDefault();
-    const username = localStorage.getItem('username');
-    socket.emit('chat.sendMessage', { message, username });
+    const from = localStorage.getItem('username');
+    const dest = username;
+    socket.emit('chat.sendMessage', { message, from, dest });
   };
 
   return (
