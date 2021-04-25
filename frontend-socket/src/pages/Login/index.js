@@ -14,7 +14,7 @@ function Login() {
 
     await axios.post('http://localhost:3001/login', { username });
     localStorage.setItem('correntUser', username);
-    history.push('/chat')
+    history.push('/chats')
   }
 
   return (
