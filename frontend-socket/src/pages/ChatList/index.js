@@ -15,7 +15,7 @@ function ChatList() {
       <h1>Lista de Usuarios</h1>
 
       <ul>
-        {users.map(({ username }) => (
+        {users && users.map(({ username }) => (
           <li>{username}</li>
           ))}
       </ul>
