@@ -6,7 +6,9 @@ function ChatList() {
 
   useEffect(() => {
     axios.get('http://localhost:3001/users').then((response) => {
-      setUsers(response.data);
+      const currentUser = localStorage.getItem('currentUser');
+      const availableUsers = response.data.filter(({ username }) => username !== currentUser);
+      setUsers(availableUsers);
     });
   }, []);
     
