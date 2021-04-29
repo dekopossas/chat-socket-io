@@ -16,4 +16,10 @@ Colocando templete de https://codepen.io/sajadhsm/pen/odaBdd.
 - socket.io
 - nodemon
 
+### frontend
 
+- axios
+- react
+- react-router-dom
+- socket-io client
+- web-vitals
