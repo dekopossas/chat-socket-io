@@ -27,3 +27,5 @@ Colocando templete de https://codepen.io/sajadhsm/pen/odaBdd.
 ### vídeos
 
 Aula guiada pelo renato, postarei em breve no repositorio e colocarei o link aqui.
+
+Aplicação ainda não funcionando.
